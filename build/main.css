@@ -1,13 +1,91 @@
-.container {
-  display: flex;
-  flex-direction: row;
-  padding: 1rem; }
-  .container div {
-    display: flex;
-    flex: 1 0 0; }
-    .container div img.main-product-img {
-      max-height: 500px; }
+.fade-in-out-enter {
+  opacity: 0.01; }
 
-@media screen and (min-width: 468px) {
-  .container {
-    flex-direction: column; } }
+.fade-in-out-enter.fade-in-out-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in; }
+
+.fade-in-out-leave {
+  opacity: 1; }
+
+.fade-in-out-leave.fade-in-out-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in; }
+
+.gallery-container span {
+  overflow: hidden;
+  max-height: calc(400px + (8px * 2)); }
+
+@media screen and (min-width: 768px) {
+  .gallery-container span {
+    max-height: calc(500px + (8px * 2)); } }
+
+#root .container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center; }
+  #root .container div {
+    display: flex;
+    flex: 1;
+    padding: 1rem; }
+    #root .container div.main-product-details {
+      flex-direction: column; }
+      #root .container div.main-product-details button {
+        margin: 0 auto; }
+    #root .container div img.main-product-img {
+      max-height: 400px;
+      margin: 0 auto; }
+    #root .container div img.thumb-product-img {
+      max-height: 100px;
+      margin-left: .5rem;
+      margin-right: .5rem; }
+    #root .container div .gallery-container {
+      flex-direction: column; }
+    #root .container div .gallery-thumbs {
+      margin: 0 auto;
+      padding: 0; }
+
+#root .notification-banner {
+  background: #212121;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 4px; }
+
+#root button {
+  background: #212121;
+  color: #fff;
+  border: 0;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  height: 40px;
+  max-width: 160px;
+  line-height: 6px; }
+  #root button:hover {
+    background: #3b3b3b; }
+  #root button:focus {
+    outline: none; }
+  #root button.secondary {
+    border: none;
+    background: #ffa5b8;
+    color: #fff; }
+    #root button.secondary:hover {
+      background: #ffd8e0; }
+
+@media screen and (min-width: 768px) {
+  #root .container {
+    flex-direction: row;
+    text-align: left; }
+    #root .container div {
+      padding: 0.5rem; }
+      #root .container div.gallery-thumbs {
+        margin: 0 auto;
+        padding: 1rem; }
+      #root .container div.main-product-details button {
+        margin: 0; }
+      #root .container div img.main-product-img {
+        max-height: 500px; } }
