@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem; }
+  .container div {
+    display: flex;
+    flex: 1 0 0; }
+    .container div img.main-product-img {
+      max-height: 500px; }
+
+@media screen and (min-width: 468px) {
+  .container {
+    flex-direction: column; } }

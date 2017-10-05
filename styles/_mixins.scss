@@ -1,0 +1,28 @@
+@mixin button {
+  // generic primary button
+  background: #212121;
+  color: #fff;
+  border: 0;
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid #212121;
+  border-radius: 4px;
+  height: 40px;
+  max-width: 160px;
+  line-height: 6px;
+  &:hover {
+    background: lighten(#212121, 10%);
+  }
+  &:focus {
+    outline: none;
+  }
+  &.secondary {
+    // pink button
+    border: none;
+    background: #ffa5b8;
+    color: #fff;
+    &:hover {
+      background: lighten(#ffa5b8, 10%);
+    }
+  }
+}
