@@ -32,3 +32,15 @@ npm run build
 output: /dist/
 
 ```
+
+# Layout updte on sku
+
+```
+
+Magento -> Catalogue -> Manage Products -> {sku} -> Design -> Layout update
+
+<reference name="product.info">
+    <action method="setTemplate"><template>catalog/product/react-view.phtml</template></action>
+</reference>
+
+```
