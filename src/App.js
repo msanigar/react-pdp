@@ -8,8 +8,13 @@ export default class App extends Component {
   }
 
   render() {
+
+    const styles = {
+      background: '#fff'
+    };
+
     return (
-        <div>
+        <div style={ styles }>
           <h3 className="notification-banner">New React product page powered by GraphQL!</h3>
 
           <Product />

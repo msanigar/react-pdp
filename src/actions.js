@@ -2,11 +2,13 @@
 
 import store from './store';
 import axios from 'axios';
+import qs from 'qs';
 
 export const GET_DATA = 'GET_DATA';
 export const INCREMENT_TEST = 'INCREMENT_TEST';
 export const UPDATE_IMG = 'UPDATE_IMG';
 export const GET_LAYOUT = 'GET_LAYOUT';
+export const ADD_TO_BAG = 'ADD_TO_BAG';
 
 export function getData() {
 	return (dispatch, getState) => {
@@ -20,12 +22,36 @@ export function incrementTest() {
 	return { type: INCREMENT_TEST, event: event };
 }
 
+export function addToBag() {
+	return (dispatch, getState) => {
+		postAddToBag().then(function(response) {
+			dispatch({ data: response, type: ADD_TO_BAG })
+		})
+	}
+}
+
 export function updateImg(event) {
 	return { type: UPDATE_IMG, event };
 }
 
 export function getLayout() {
 	return { type: GET_LAYOUT, event: event };
+}
+
+function postAddToBag() {
+
+	return new Promise(function(resolve, reject) {
+
+		jQuery.post('https://missguided.development.local/ajax/cart/add/', {
+		    product: 2,
+		    related_product: '',
+		    'super_attribute[164]': 7358
+		}).then(function() {
+			resolve(response.bag ? response.bag : {});
+		});
+
+	});
+
 }
 
 function getDataWithKey() {

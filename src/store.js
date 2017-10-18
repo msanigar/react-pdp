@@ -3,7 +3,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { loadState, saveState } from './localStorage';
-import { GET_DATA, INCREMENT_TEST, UPDATE_IMG, GET_LAYOUT } from './actions';
+import { GET_DATA, INCREMENT_TEST, UPDATE_IMG, GET_LAYOUT, ADD_TO_BAG } from './actions';
 
 const mainReducer = (state = initialState, action) => {
 
@@ -23,6 +23,10 @@ const mainReducer = (state = initialState, action) => {
 		return getLayout(state, action);
 	}
 
+	if (action.type === ADD_TO_BAG) {
+		return addToBag(state, action);
+	}
+
 	return state;
 };
 
@@ -40,11 +44,17 @@ function incrementTest(state, action) {
 	return newState;
 }
 
+function addToBag(state, action) {
+	var newState = Object.assign({}, state);
+	var obj = action.data.bag;
+	newState.bag = obj;
+	return newState;
+}
+
 function updateImg(state, action) {
 	var newState = Object.assign({}, state);
 		newState.primaryImg = action.event;
 	return newState;
-	console.warn(action);
 }
 
 function getLayout(state, action) {
@@ -58,7 +68,8 @@ const initialState = {
   ready: false,
 	increment: 0,
 	primaryImg: null,
-	layout: null
+	layout: null,
+	bag: {}
 };
 
 let store;

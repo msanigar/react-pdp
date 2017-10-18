@@ -20,6 +20,10 @@ class Details extends Component {
 		store.dispatch(actions.incrementTest());
 	}
 
+	addToBasket() {
+		store.dispatch(actions.addToBag());
+	}
+
   componentWillUnmount() {
 		this.state.unsubscribe();
 	}
@@ -43,6 +47,7 @@ class Details extends Component {
         <p>{ this.state.data.productBySKU.description }</p>
         <p>{ this.state.data.productBySKU.url_key }</p>
         <button onClick={ this.increment.bind(this) }> Click me! { this.state.increment } </button>
+				<button onClick={ this.addToBasket.bind(this) }> add to bag </button>
       </div>
     )
 	}
