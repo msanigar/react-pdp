@@ -1,0 +1,49 @@
+<?php
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output');
+$_product = $this->getProduct();
+
+?>
+
+<link rel="stylesheet" href="//localhost:9001/build/main.css">
+
+<script>
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+
+<div id="messages_product_view">
+    <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+</div>
+
+<script type="text/javascript">
+
+    window.layoutOverride = {
+        switch: false
+    };
+
+</script>
+
+<div>
+
+<?php
+
+$childProducts = Mage::getModel('catalog/product_type_configurable')
+->getUsedProducts(null,$_product);
+
+foreach($childProducts as $child) {
+
+echo $child->getAttributeText('clothing_size');
+
+}
+?>
+
+</div>
+
+<div id="root" data-id="<?php echo $_product->getId(); ?>" data-sku="<?php echo $_product->getSku(); ?>"></div>
+<script src="//localhost:9001/build/bundle.js"></script>
